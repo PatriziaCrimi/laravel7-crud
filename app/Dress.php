@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dress extends Model
 {
-  protected $fillable['name', 'color', 'size', 'description', 'price', 'season'];
+  // Questo serve per mappare la tabella giusta
+  protected $table = 'dresses';
+
+  protected $fillable = ['name', 'color', 'size', 'description', 'price', 'season'];
 }

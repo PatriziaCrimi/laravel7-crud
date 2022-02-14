@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Dress;
 
 class DressController extends Controller
 {
@@ -13,7 +14,11 @@ class DressController extends Controller
      */
     public function index()
     {
-        //
+      $data = [
+        'dresses' => Dress::all()
+      ];
+      return view('dresses.index', $data);
+      //return view('dresses.index', compact('dresses'));
     }
 
     /**
