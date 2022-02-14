@@ -14,11 +14,9 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col">Name</th>
-              <th scope="col">Color</th>
               <th scope="col">Size</th>
-              <th scope="col">Description</th>
               <th scope="col">Price</th>
-              <th scope="col">Season</th>
+              <th scope="col">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -26,11 +24,13 @@
               <tr>
                 <th scope="row">{{$dress->id}}</th>
                 <td>{{$dress->name}}</td>
-                <td>{{$dress->color}}</td>
                 <td>{{$dress->size}}</td>
-                <td>{{$dress->description}}</td>
                 <td>{{$dress->price}}</td>
-                <td>{{$dress->season}}</td>
+                <td>
+                  <a class="btn btn-info" href="{{route('dresses.show', ['dress' => $dress->id])}}">
+                    Details
+                  </a>
+                </td>
               </tr>
             @endforeach
           </tbody>

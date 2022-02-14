@@ -50,7 +50,16 @@ class DressController extends Controller
      */
     public function show($id)
     {
-        //
+      $dress = Dress::find($id);
+      // Controllo che il parametro in query string abbia dato un risultato corretto nel find e il vestito esiste
+      if($dress) {
+        $data = [
+          'dress' => $dress
+        ];
+        return view('dresses.show', $data);
+      } else {
+        abort(404);
+      }
     }
 
     /**
