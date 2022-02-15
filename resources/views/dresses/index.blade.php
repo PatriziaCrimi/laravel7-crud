@@ -24,6 +24,7 @@
               <th scope="col">Size</th>
               <th scope="col">Price</th>
               <th scope="col">Actions</th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
@@ -36,6 +37,9 @@
                 <td>
                   <a class="btn btn-info" href="{{route('dresses.show', ['dress' => $dress->id])}}">
                     Details
+                  </a>
+                  <a class="btn btn-light" href="{{route('dresses.edit', ['dress' => $dress->id])}}">
+                    Edit
                   </a>
                 </td>
               </tr>

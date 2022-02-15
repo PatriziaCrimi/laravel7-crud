@@ -4,6 +4,11 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
+        <h1>Add a new dress</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
         <form class="" action="{{route('dresses.store')}}" method="post">
           @csrf
           @method('POST')
@@ -25,11 +30,17 @@
           </div>
           <div class="form-group">
             <label for="price">Price</label>
-            <input required type="number" name="price" class="form-control" id="price" aria-describedby="price" placeholder="Enter the price">
+            <input required type="number" name="price" class="form-control" id="price" aria-describedby="price" step="0.01">
           </div>
           <div class="form-group">
             <label for="season">Season</label>
-            <input required type="text" name="season" class="form-control" id="season" aria-describedby="season" placeholder="Enter the season">
+            <select class="" name="season">
+              <option value="">--select--</option>
+              <option value="spring">spring</option>
+              <option value="summer">summer</option>
+              <option value="autumn">autumn</option>
+              <option value="winter">winter</option>
+            </select>
           </div>
           <button type="submit" class="btn btn-success">Submit</button>
         </form>
