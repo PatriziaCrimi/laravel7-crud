@@ -120,8 +120,9 @@ class DressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Dress $dress)
     {
-        //
+      $dress->delete();
+      return redirect()->route('dresses.index');
     }
 }

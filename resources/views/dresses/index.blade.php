@@ -24,7 +24,6 @@
               <th scope="col">Size</th>
               <th scope="col">Price</th>
               <th scope="col">Actions</th>
-              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
@@ -41,6 +40,13 @@
                   <a class="btn btn-light" href="{{route('dresses.edit', ['dress' => $dress->id])}}">
                     Edit
                   </a>
+                  <form action="{{route('dresses.destroy', ['dress' => $dress->id])}}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" name="button" class="btn btn-danger">
+                      Delete
+                    </button>
+                  </form>
                 </td>
               </tr>
             @endforeach
