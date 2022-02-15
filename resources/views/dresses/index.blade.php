@@ -9,6 +9,13 @@
     </div>
     <div class="row">
       <div class="col-12">
+        <a class="btn btn-dark float-right" href="{{route('dresses.create')}}">
+          New Dress
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
         <table class="table">
           <thead>
             <tr>
@@ -25,7 +32,7 @@
                 <th scope="row">{{$dress->id}}</th>
                 <td>{{$dress->name}}</td>
                 <td>{{$dress->size}}</td>
-                <td>{{$dress->price}}</td>
+                <td>{{number_format($dress->price, 2, ',', '.')}} &euro;</td>
                 <td>
                   <a class="btn btn-info" href="{{route('dresses.show', ['dress' => $dress->id])}}">
                     Details

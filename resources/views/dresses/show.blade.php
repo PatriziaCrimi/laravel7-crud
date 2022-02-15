@@ -21,7 +21,7 @@
           </li>
           <li>
             <span class="font-weight-bold">Price:</span>
-            {{$dress->price}} &euro;
+            {{number_format($dress->price, 2, ',', '.')}} &euro;
           </li>
           <li>
             <span class="font-weight-bold">Season:</span>

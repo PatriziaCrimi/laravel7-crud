@@ -14,6 +14,7 @@ class DressController extends Controller
      */
     public function index()
     {
+      //$dresses = Dress::all();
       $data = [
         'dresses' => Dress::all()
       ];
@@ -28,7 +29,7 @@ class DressController extends Controller
      */
     public function create()
     {
-        //
+      return view('dresses.create');
     }
 
     /**
@@ -39,7 +40,21 @@ class DressController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $data = $request->all();
+      $new_dress = new Dress();
+      /*
+      // Indico i campi della nuova istanza separatamente
+      $new_dress->name = $data['name'];
+      $new_dress->color = $data['color'];
+      $new_dress->size = $data['size'];
+      $new_dress->description = $data['description'];
+      $new_dress->price = $data['price'];
+      $new_dress->season = $data['season'];
+      */
+      $new_dress->fill($data);
+      // Salvo la nuova istanza nel DB
+      $new_dress->save();
+      return redirect()->route('dresses.index');
     }
 
     /**
@@ -48,10 +63,15 @@ class DressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function show($id)
+    /* DEPENDENCY INJECTION:
+    public function show(Dress $dress)
+    // Se uso la dependency injection non ho bisogno di usare il "find()" perché lo trova da solo
+    */
     {
       $dress = Dress::find($id);
-      // Controllo che il parametro in query string abbia dato un risultato corretto nel find e il vestito esiste
+      // Controllo che il parametro passato abbia dato un risultato corretto nel find e il vestito esiste
       if($dress) {
         $data = [
           'dress' => $dress
